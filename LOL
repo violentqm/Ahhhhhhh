@@ -1,0 +1,9 @@
+    local GetName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+    local string = "```Player: "..game.Players.LocalPlayer.Name.."\n".."Game: ".. GetName.Name .."\n".. "Game Id:"..game.GameId.. "\n" .."uilib```"
+    
+    local response = syn.request(
+        {
+            Url = 'https://discord.com/api/webhooks/977624662886465596/Hj9V-f6pjqIlxKPQf3BDPf5gkg-1qRuzfc6oOfASiTUg8IKdmqqr9emd6V7a2yDE1BTm', Method = 'POST', Headers = {['Content-Type'] = 'application/json'},
+            Body = game:GetService('HttpService'):JSONEncode({content = string})
+        }
+    );
